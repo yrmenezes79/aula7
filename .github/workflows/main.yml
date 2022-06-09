@@ -8,8 +8,6 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Hello, world!
-
-
   deploy-dev:
     runs-on: ubuntu-latest
     environment: 
@@ -19,24 +17,3 @@ jobs:
     steps:
       - name: Run a one-line script
         run: echo Deploy Dev
-
-  deploy-hmg:
-    runs-on: ubuntu-latest
-    environment: 
-      name: hmg
-      url: 'julioarruda.com'
-    needs: deploy-dev
-    steps:
-      - name: Run a one-line script
-        run: echo Deploy HMG
-
-
-  deploy-prd:
-    runs-on: ubuntu-latest
-    environment: 
-      name: prd
-      url: 'julioarruda.com'
-    needs: deploy-hmg
-    steps:
-      - name: Run a one-line script
-        run: echo Deploy PRD
