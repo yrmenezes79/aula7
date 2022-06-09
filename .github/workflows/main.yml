@@ -1,40 +1,42 @@
-name: CI
-
+name: DemoNewCD
 on:
   workflow_dispatch:
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Run a one-line script
         run: echo Hello, world!
+
+
   deploy-dev:
     runs-on: ubuntu-latest
-    envirronment:
+    environment: 
       name: dev
-      url: 'yrmenezes.com'
-    need: build  
+      url: 'julioarruda.com'
+    needs: build
     steps:
       - name: Run a one-line script
-        run: echo Deploy dev
-        
+        run: echo Deploy Dev
+
   deploy-hmg:
     runs-on: ubuntu-latest
-    envirronment:
+    environment: 
       name: hmg
-      url: 'yrmenezes.com'
-    need: deploy-dev  
+      url: 'julioarruda.com'
+    needs: deploy-dev
     steps:
       - name: Run a one-line script
-        run: echo Deploy dev
-        
+        run: echo Deploy HMG
+
+
   deploy-prd:
     runs-on: ubuntu-latest
-    envirronment:
+    environment: 
       name: prd
-      url: 'yrmenezes.com'
-    need: deploy-hmg  
+      url: 'julioarruda.com'
+    needs: deploy-hmg
     steps:
       - name: Run a one-line script
-        run: echo Deploy prd
+        run: echo Deploy PRD
