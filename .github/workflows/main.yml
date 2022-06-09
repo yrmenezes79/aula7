@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+  deploy-dev:
+    runs-on: ubuntu-latest
+    envirronment:
+      name: dev
+      url: 'yrmenezes.com'
+    need: build  
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy dev
+        
+  deploy-hmg:
+    runs-on: ubuntu-latest
+    envirronment:
+      name: hmg
+      url: 'yrmenezes.com'
+    need: deploy-dev  
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy dev
+        
+  deploy-prd:
+    runs-on: ubuntu-latest
+    envirronment:
+      name: prd
+      url: 'yrmenezes.com'
+    need: deploy-hmg  
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy prd
