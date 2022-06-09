@@ -17,3 +17,12 @@ jobs:
       - name: Execute Python Script # Run the run.py on the repository root directory
         run: |
           python testes.py
+deploy-dev:
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+      url: 'yuri.com'
+    needs: job1
+    steps:
+      - name: Run a one-line script
+        run: ls -ltr
