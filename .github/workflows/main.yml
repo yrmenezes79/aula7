@@ -2,6 +2,11 @@ name: Python Script Workflow
 
 on: [push]
 
+env:
+  applicationfolder: spring-boot-hello-world-example
+  AWS_REGION: ##region##
+  S3BUCKET: ##s3-bucket## 
+  
 jobs:
   job1:
     runs-on: ubuntu-latest
